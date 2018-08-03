@@ -18,8 +18,6 @@ app.get('/:id', (req, res) => {
     res.send(data[req.params.id]);
     return;
   }
-
-
   res.send({
     error: {
       message: 'No record found!',
@@ -27,7 +25,17 @@ app.get('/:id', (req, res) => {
   });
 });
 
+app.post('/', (req, res) => {
+  res.send('POST request to the homepage');
+});
+
+app.put('/', (req, res) => {
+  res.send('Update the Profiles');
+});
+
+app.delete('/', (req, res) => {
+  res.send('DELETE request to homepage');
+});
+
 app.use(cors());
-
-
 app.listen(PORT, () => process.stdout.write(`Listening on port ${PORT}\n`));
